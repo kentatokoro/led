@@ -1,6 +1,7 @@
-obj-m:= myled1.o
-
-myled1.ko: myled.c
-  make -C /usr/src/linux M=`pwd` V=1 modules
-clean:
-  make -C /usr/src/linux M=`pwd` V=1 clean
+#! /bin/bash
+for ((i = 0; i < 15; i++)); do
+echo 1 > /dev/myled0
+sleep 1    
+echo 0 > /dev/myled0
+sleep 3
+done
